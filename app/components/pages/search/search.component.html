@@ -1,0 +1,24 @@
+<h1>
+	Search for music on Spotify
+</h1>
+<p class="lead">
+	listen to music on spotify to make your day better.
+</p>
+
+<form class="form-group">
+	<input type="text" name="searchStr" class="form-control" placeholder="Song name..." 
+	[(ngModel)]="searchStr" (keyup)="searchSong()" />
+</form>
+<hr/>
+<div *ngIf=" artists " class="container">
+	<div *ngFor=" let artist of artists ">	
+		<div class="well">
+			<h5><a routerLink="/artist/{{artist.id}}">{{artist.name}}</a></h5>
+			<p *ngIf="artist.genres.length > 0">
+				<strong>Genres : </strong> <span *ngFor="let genre of artist.genres" class="label label-default"> {{genre}} </span>
+
+			</p>
+		</div>
+	</div>
+
+</div>
